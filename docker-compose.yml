@@ -1,0 +1,12 @@
+services:
+  partner-portal:
+    build: .
+    container_name: partner-portal-app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env.local
+    volumes:
+      # Постоянное хранилище базы данных и заказов на хосте
+      - ./data:/app/data
